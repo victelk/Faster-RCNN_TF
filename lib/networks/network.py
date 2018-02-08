@@ -46,6 +46,7 @@ class Network(object):
             saver.restore(session, data_path)
         else:
             data_dict = np.load(data_path).item()
+            # data_dict = np.load(data_path, encoding='latin1').item()
             for key in data_dict:
                 with tf.variable_scope(key, reuse=True):
                     for subkey in data_dict[key]:
@@ -102,7 +103,7 @@ class Network(object):
 
             init_weights = tf.truncated_normal_initializer(0.0, stddev=0.01)
             init_biases = tf.constant_initializer(0.0)
-            kernel = self.make_var('weights', [k_h, k_w, c_i/group, c_o], init_weights, trainable)
+            kernel = self.make_var('weights', [k_h, k_w, c_i//group, c_o], init_weights, trainable)
             biases = self.make_var('biases', [c_o], init_biases, trainable)
 
             if group==1:
