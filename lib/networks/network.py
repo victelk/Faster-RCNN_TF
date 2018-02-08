@@ -52,9 +52,9 @@ class Network(object):
                         try:
                             var = tf.get_variable(subkey)
                             session.run(var.assign(data_dict[key][subkey]))
-                            print "assign pretrain model "+subkey+ " to "+key
+                            print("assign pretrain model "+subkey+ " to "+key)
                         except ValueError:
-                            print "ignore "+key
+                            print("ignore "+key)
                             if not ignore_missing:
 
                                 raise
@@ -63,12 +63,12 @@ class Network(object):
         assert len(args)!=0
         self.inputs = []
         for layer in args:
-            if isinstance(layer, basestring):
+            if isinstance(layer, str):
                 try:
                     layer = self.layers[layer]
-                    print layer
+                    print(layer)
                 except KeyError:
-                    print self.layers.keys()
+                    print(list(self.layers.keys()))
                     raise KeyError('Unknown layer name fed: %s'%layer)
             self.inputs.append(layer)
         return self
@@ -77,12 +77,12 @@ class Network(object):
         try:
             layer = self.layers[layer]
         except KeyError:
-            print self.layers.keys()
+            print(list(self.layers.keys()))
             raise KeyError('Unknown layer name fed: %s'%layer)
         return layer
 
     def get_unique_name(self, prefix):
-        id = sum(t.startswith(prefix) for t,_ in self.layers.items())+1
+        id = sum(t.startswith(prefix) for t,_ in list(self.layers.items()))+1
         return '%s_%d'%(prefix, id)
 
     def make_var(self, name, shape, initializer=None, trainable=True):
@@ -148,7 +148,7 @@ class Network(object):
         if isinstance(input[1], tuple):
             input[1] = input[1][0]
 
-        print input
+        print(input)
         return roi_pool_op.roi_pool(input[0], input[1],
                                     pooled_height,
                                     pooled_width,
