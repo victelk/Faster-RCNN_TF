@@ -1,8 +1,9 @@
 # Faster-RCNN_TF
 
-This is an experimental Tensorflow implementation of Faster RCNN - a convnet for object detection with a region proposal network.
+This is an experimental Tensorflow implementation of Faster RCNN in Python 3 - a convnet for object detection with a region proposal network.
 For details about R-CNN please refer to the paper [Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks](http://arxiv.org/pdf/1506.01497v3.pdf) by Shaoqing Ren, Kaiming He, Ross Girshick, Jian Sun.
 
+Current status: successfully running demo - python3 ./tools/demo.py --model ./data/pretrain_model/VGGnet_fast_rcnn_iter_70000.ckpt 
 
 ### Requirements: software
 
@@ -13,6 +14,18 @@ For details about R-CNN please refer to the paper [Faster R-CNN: Towards Real-Ti
 ### Requirements: hardware
 
 1. For training the end-to-end version of Faster R-CNN with VGG16, 3G of GPU memory is sufficient (using CUDNN)
+
+### Software and Hardware Environment
+
+1. Ubuntu 16.04.3
+
+2. Python 3.5
+
+3. Tensorflow 1.4
+
+4. cuda 8, cuDNN 6
+
+5. Tesla K80
 
 ### Installation (sufficient for the demo)
 
