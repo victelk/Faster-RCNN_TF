@@ -45,8 +45,8 @@ class Network(object):
         if data_path.endswith('.ckpt'):
             saver.restore(session, data_path)
         else:
-            data_dict = np.load(data_path).item()
-            # data_dict = np.load(data_path, encoding='latin1').item()
+            # data_dict = np.load(data_path).item()
+            data_dict = np.load(data_path, encoding='latin1').item()
             for key in data_dict:
                 with tf.variable_scope(key, reuse=True):
                     for subkey in data_dict[key]:
