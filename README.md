@@ -3,7 +3,9 @@
 This is an experimental Tensorflow implementation of Faster RCNN in Python 3 - a convnet for object detection with a region proposal network.
 For details about R-CNN please refer to the paper [Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks](http://arxiv.org/pdf/1506.01497v3.pdf) by Shaoqing Ren, Kaiming He, Ross Girshick, Jian Sun.
 
-Current status: successfully running demo - python3 ./tools/demo.py --model ./data/pretrain_model/VGGnet_fast_rcnn_iter_70000.ckpt 
+Current status: 
+1. Successfully running demo - python3 ./tools/demo.py --model ./data/pretrain_model/VGGnet_fast_rcnn_iter_70000.ckpt. 
+2. Successfully running  ./experiments/scripts/faster_rcnn_end2end.sh gpu 0 VGG16 pascal_voc. 
 
 ### Requirements: software
 
@@ -102,31 +104,31 @@ The demo performs detection using a VGG16 network trained for detection on PASCA
 	```
   DEVICE is either cpu/gpu
 
-### The result of testing on PASCAL VOC 2007 
+### The result of testing on PASCAL VOC 2007 after 70000 iteration
 
-| Classes       | AP     |
-|-------------|--------|
-| aeroplane   | 0.698 |
-| bicycle     | 0.788 |
-| bird        | 0.657 |
-| boat        | 0.565 |
-| bottle      | 0.478 |
-| bus         | 0.762 |
-| car         | 0.797 |
-| cat         | 0.793 |
-| chair       | 0.479 |
-| cow         | 0.724 |
-| diningtable | 0.648 |
-| dog         | 0.803 |
-| horse       | 0.797 |
-| motorbike   | 0.732 |
-| person      | 0.770 |
-| pottedplant | 0.384 |
-| sheep       | 0.664 |
-| sofa        | 0.650 |
-| train       | 0.766 |
-| tvmonitor   | 0.666 |
-| mAP        | 0.681 |
+| Classes     | AP    |
+|-------------|-------|
+| aeroplane   | 0.695 |
+| bicycle     | 0.785 |
+| bird        | 0.665 |
+| boat        | 0.603 |
+| bottle      | 0.542 |
+| bus         | 0.803 |
+| car         | 0.802 |
+| cat         | 0.792 |
+| chair       | 0.498 |
+| cow         | 0.742 |
+| diningtable | 0.671 |
+| dog         | 0.765 |
+| horse       | 0.804 |
+| motorbike   | 0.762 |
+| person      | 0.774 |
+| pottedplant | 0.421 |
+| sheep       | 0.665 |
+| sofa        | 0.666 |
+| train       | 0.768 |
+| tvmonitor   | 0.710 |
+| mAP         | 0.697 |
 
 
 ###References
