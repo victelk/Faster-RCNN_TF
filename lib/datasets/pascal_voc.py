@@ -273,6 +273,11 @@ class pascal_voc(imdb):
             'Main',
             self._image_set + '.txt')
         cachedir = os.path.join(self._devkit_path, 'annotations_cache')
+        # Delete old annotation file if exists:
+        try:
+            os.remove(os.path.join(cachedir,'annots.pkl'))
+        except OSError:
+            pass
         aps = []
         # The PASCAL VOC metric changed in 2010
         use_07_metric = True if int(self._year) < 2010 else False
@@ -288,7 +293,7 @@ class pascal_voc(imdb):
                 use_07_metric=use_07_metric)
             aps += [ap]
             print(('AP for {} = {:.4f}'.format(cls, ap)))
-            with open(os.path.join(output_dir, cls + '_pr.pkl'), 'w') as f:
+            with open(os.path.join(output_dir, cls + '_pr.pkl'), 'wb') as f:
                 pickle.dump({'rec': rec, 'prec': prec, 'ap': ap}, f)
         print(('Mean AP = {:.4f}'.format(np.mean(aps))))
         print('~~~~~~~~')

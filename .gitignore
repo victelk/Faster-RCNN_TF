@@ -3,3 +3,5 @@
 *.o
 faster_rcnn_models
 VOCdevkit2007
+output/
+experiments/logs/
